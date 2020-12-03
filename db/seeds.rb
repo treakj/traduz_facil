@@ -35,17 +35,23 @@ User.create(
 end
 
 50.times do
+  #  Aqui para evitar que haja repetição entre job e proposta
+  for_job = User.find(User.pluck(:id).sample).id
+  for_proposal = User.find(User.pluck(:id).sample).id
+  for_proposal += 1 if for_job == for_proposal
+
   Job.create(
     content: "translate #{Faker::Nation.language} to #{Faker::Nation.language}",
-    user_id: User.find(User.pluck(:id).sample).id
+    user_id: for_job
   )
   puts "created job #{Job.last.content}"
 
   Proposal.create(
     job_id: Job.last.id, # Job.find(Job.pluck(:id).sample).id,
+    user_id: for_proposal, # Job.find(Job.pluck(:id).sample).id,
     status: 'pending',
     price: (50..100).to_a.sample,
     deadline: Faker::Date.forward(days: 23)
   )
-  puts "created proposal #{Proposal.last.status}"
+  puts "created proposal Price #{Proposal.last.price}"
 end
