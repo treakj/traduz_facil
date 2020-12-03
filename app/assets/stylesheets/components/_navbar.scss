@@ -7,18 +7,10 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon img {
+.navbar-lewagon .navbar-brand img {
   width: 40px;
-}
-
-.navbar-brand img {
-  width: 60px;
 }
 
 .navbar-brand {
   color: $green !important;
-}
-
-.navbar-brand .title{
-  margin-left: -10px;
 }
