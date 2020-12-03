@@ -35,10 +35,13 @@ User.create(
 end
 
 50.times do
-  #  Aqui para evitar que haja repetição entre job e proposta
+  #  Aqui para evitar que haja repeticao entre job e proposta do usuario
   for_job = User.find(User.pluck(:id).sample).id
   for_proposal = User.find(User.pluck(:id).sample).id
-  for_proposal += 1 if for_job == for_proposal
+  if for_job == for_proposal
+    for_job == User.last.id ? for_proposal = User.first.id : for_proposal += 1
+    # se for_job e for_proposal forem iguais, entao tem que ver se algum deles e o ultimo
+  end
 
   Job.create(
     content: "translate #{Faker::Nation.language} to #{Faker::Nation.language}",
