@@ -21,16 +21,23 @@ User.create(
   admin: true
 )
 
-200.times do
-  User.create(
+index = 1
+require 'uri'
+
+50.times do
+  file = URI.open("https://kitt.lewagon.com/placeholder/users/#{index}")
+  index += 1
+  temp = User.new(
     username: Faker::Internet.username,
     email: Faker::Internet.email,
     skill: Faker::Nation.language,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     password: "123456",
-    password_confirmation: "123456"
+    password_confirmation: "123456",
   )
+  temp.photo.attach(io: file, filename: "user_avatar_#{index}")
+  temp.save
 end
 puts "created user!"
 50.times do
