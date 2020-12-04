@@ -50,6 +50,9 @@ puts "created user!"
   # para que nem todos os jobs tenham alguma proposta
   next unless (0..99).to_a.sample > 50
 
+  # para que nem todos os jobs tenham alguma proposta
+  next unless (0..99).to_a.sample > 50
+
   Proposal.create(
     job_id: Job.last.id, # Job.find(Job.pluck(:id).sample).id,
     user_id: for_proposal, # Job.find(Job.pluck(:id).sample).id,
@@ -58,4 +61,5 @@ puts "created user!"
     deadline: Faker::Date.forward(days: 23)
   )
 end
+
 puts "created proposal and job!"

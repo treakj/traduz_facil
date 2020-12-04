@@ -1,0 +1,10 @@
+<ul class="list-group">
+<% @jobs.each do |job| %>
+  <li class="list-group-item">
+    <%= link_to jobs_path do %>
+        <p>Tradução: <%= job.content %> </p>
+    <% end %>
+        <p>Quem procura: <%= job.user.username %> </p>
+  </li>
+  <% end %>
+</ul>
