@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   
-  before_action :set_job, only: [:show, :destroy]
+  before_action :set_job, only: [:show, :destroy, :my_jobs]
 
   def index
     # @restaurants = Restaurant.all
@@ -30,6 +30,12 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     redirect_to jobs_url, notice: 'Job was successfully destroyed.'
+  end
+
+  # ==>> CONTINUAR <<===
+  def my_jobs
+    @jobs = policy_scope(Job).find(@proposal.job_id).where(@proposal.user_id == current_user)
+    # .order(created_at: :desc)
   end
 
   private

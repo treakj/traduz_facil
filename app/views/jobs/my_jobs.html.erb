@@ -1,0 +1,19 @@
+<h1>Jobs for fulaninho</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Content</th>      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.id %></td>
+        <td><%= job.content %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

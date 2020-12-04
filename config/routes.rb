@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :review, only: %i[new create]
   end
   get '/jobs/myjobs', to: 'jobs#my_jobs'
+  # get '/proposals/myjobs', to: 'proposals#my_jobs'
 end
