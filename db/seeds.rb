@@ -49,6 +49,9 @@ end
   )
   puts "created job #{Job.last.content}"
 
+  # para que nem todos os jobs tenham alguma proposta
+  next unless (0..99).to_a.sample > 50
+
   Proposal.create(
     job_id: Job.last.id, # Job.find(Job.pluck(:id).sample).id,
     user_id: for_proposal, # Job.find(Job.pluck(:id).sample).id,
@@ -56,5 +59,5 @@ end
     price: (50..100).to_a.sample,
     deadline: Faker::Date.forward(days: 23)
   )
-  puts "created proposal Price #{Proposal.last.price}"
 end
+puts "created proposal Price #{Proposal.last.price}"
