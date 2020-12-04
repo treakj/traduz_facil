@@ -15,45 +15,9 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-            <%= render partial: "share/navbar" %>
+        <%= render partial: "share/navbar" %>
 
-<div class="container">
-
-  <div class="row">
-    <div class="col-8  px-5 py-5" >
-    <h1>Traduz Fácil</h1>
-        <h2><em>Tradução sem complicação.</em></h2>
-      <p>A melhor plataforma de conexão entre tradutores e clientes.</p>
-    </div>
-
-    <div class="col-4 px-5 py-5">
         <%= yield %>
-    </div>
-  </div>
-
-  <div class="row my-3">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Para quem precisa de traduções</h5>
-          <p class="card-text">Cadastre aqui seu pedido e receba cotações. <br>
-          Você poderá verificar preço, prazo e portifolio antes de decidir.</p>
-          <a href="#" class="btn-green">Cadastre seu pedido</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Para tradutores</h5>
-          <p class="card-text">Encontre clientes e oportunidades de trabalho. <br> Faça sua proposta! Mostre a qualidade de seu trabalho!</p>
-          <a href="#" class="btn-green">Busque demandas por tradução</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div> 
 
         <%= render partial: "share/footer" %>
   </body>
