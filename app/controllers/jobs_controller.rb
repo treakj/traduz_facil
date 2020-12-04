@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   def index
     # @restaurants = Restaurant.all
-    @restaurants = policy_scope(Job).order(created_at: :desc)
+    @jobs = policy_scope(Job).order(created_at: :desc)
   end
 
   def show
