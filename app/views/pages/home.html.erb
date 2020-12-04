@@ -19,7 +19,7 @@
           <h5 class="card-title">Para quem precisa de traduções</h5>
           <p class="card-text">Cadastre aqui seu pedido e receba cotações. <br>
           Você poderá verificar preço, prazo e portifolio antes de decidir.</p>
-          <a href="#" class="btn-green">Cadastre seu pedido</a>
+          <%= link_to "Cadastre seu pedido", new_job_path, :class => 'btn-green' %>
         </div>
       </div>
     </div>
@@ -28,8 +28,8 @@
         <div class="card-body">
           <h5 class="card-title">Para tradutores</h5>
           <p class="card-text">Encontre clientes e oportunidades de trabalho. <br> Faça sua proposta! Mostre a qualidade de seu trabalho!</p>
-          <a href="#" class="btn-green">Busque demandas por tradução</a>
-        </div>
+          <%= link_to "Busque demandas por tradução", jobs_path, :class => 'btn-green' %>
+          </div>
       </div>
     </div>
   </div>
