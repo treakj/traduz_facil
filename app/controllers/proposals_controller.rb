@@ -4,7 +4,7 @@ class ProposalsController < ApplicationController
 
   def edit
     @job = Job.find(params[:job_id])
-    @date = @proposal.deadline.strftime("%d.%m.%Y")
+    @date = "#{@proposal.deadline.strftime("%d.%m.%Y")} - (#{(Date.today - @proposal.deadline).ceil.abs} days)"
   end
 
   def update
