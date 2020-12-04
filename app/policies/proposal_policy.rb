@@ -1,5 +1,14 @@
 class ProposalPolicy < ApplicationPolicy
   class Scope < Scope
+    def initialize(user, record)
+      @user = user
+      @record = record
+    end
+
+    def create?
+      true
+    end
+
     def resolve
       scope.all
     end
