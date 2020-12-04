@@ -12,10 +12,15 @@
   </head>
 
   <body>
+      <div id="notice">
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <%= render partial: "share/navbar" %>
-    <%= yield %>
-    <%= render partial: "share/footer" %>
+
+        <%= render partial: "share/navbar" %>
+
+        <%= yield %>
+
+        <%= render partial: "share/footer" %>
   </body>
 </html>

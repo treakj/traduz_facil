@@ -31,9 +31,8 @@ User.create(
     password: "123456",
     password_confirmation: "123456"
   )
-  puts "created user #{User.last.username}"
 end
-
+puts "created user!"
 50.times do
   #  Aqui para evitar que haja repeticao entre job e proposta do usuario
   for_job = User.find(User.pluck(:id).sample).id
@@ -47,7 +46,12 @@ end
     content: "translate #{Faker::Nation.language} to #{Faker::Nation.language}",
     user_id: for_job
   )
-  puts "created job #{Job.last.content}"
+
+  # para que nem todos os jobs tenham alguma proposta
+  next unless (0..99).to_a.sample > 50
+
+  # para que nem todos os jobs tenham alguma proposta
+  next unless (0..99).to_a.sample > 50
 
   Proposal.create(
     job_id: Job.last.id, # Job.find(Job.pluck(:id).sample).id,
@@ -56,5 +60,6 @@ end
     price: (50..100).to_a.sample,
     deadline: Faker::Date.forward(days: 23)
   )
-  puts "created proposal Price #{Proposal.last.price}"
 end
+
+puts "created proposal and job!"

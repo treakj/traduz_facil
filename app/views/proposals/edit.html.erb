@@ -1,0 +1,44 @@
+<div class="container">
+  <h2 class="edit-title mt-4">Check Proposal</h2>
+  <div class="col-6 mt-4 mb-4">
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th scope="row">Job description:</th>
+          <td><%= Job.find(@proposal.job_id).content %></td>
+        </tr>
+        <tr>
+          <th scope="row">User:</th>
+          <td><%= User.find(@proposal.user_id).username %></td>
+        </tr>
+        <tr>
+          <th scope="row">Price</th>
+          <td>R$ <%= @proposal.price %></td>
+        </tr>
+        <tr>
+          <th scope="row">Deadline established</th>
+          <td><%= @date %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <%= simple_form_for [ @job, @proposal ], :html => {:class => 'form-group ml-4'} do |f| %>
+    <div class="row">
+      <%= f.label :status, class:"edit-label col-1 br-0 pr-0" %>
+      <div class="edit-options col-4 bl-0 pl-0">
+        <%= f.collection_radio_buttons :status, [
+        ['pending', 'Pending'],
+        ['accepted', 'Accept'],
+        ['rejected', 'Reject']],
+        :first, :last, item_wrapper_tag: :div %>
+      </div>
+    </div>
+    <br>
+    <%= f.submit class:"btn btn-green" %>
+    <% end %>
+  <hr>
+  <div>
+    <i class="fas fa-history"></i> <%= link_to "back home",  root_path %>
+  </div>
+</div>
