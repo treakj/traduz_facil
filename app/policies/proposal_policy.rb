@@ -5,22 +5,26 @@ class ProposalPolicy < ApplicationPolicy
       @record = record
     end
 
+    def resolve
+      scope.all
+    end
+
+    def new?
+      true
+    end
+
     def create?
       true
     end
 
-    def resolve
-      scope.all
+    def update?
+      admin_or_owner?
     end
-  end
 
-  def update?
-    admin_or_owner?
-  end
+    private
 
-  private
-
-  def admin_or_owner?
-    user.admin || user == Job.find(record.job_id).user_id
+    def admin_or_owner?
+      user.admin || user == Job.find(record.job_id).user_id
+    end
   end
 end

@@ -1,13 +1,14 @@
 <ul class="list-group">
   <% @jobs.each do |job| %>
     <li class="list-group-item">
-      <%= link_to jobs_path do %>
-        <p>Tradução: <%= job.content %> </p>
-      <% end %>
+      <%#= link_to "Ver o trabalho" job_path(job) %>
+      <p>Tradução: <%= job.content %> </p>
       <p>Quem procura: <%= job.user.username %> </p>
+      <%= link_to 'Fazer proposta', new_job_proposal_path(job), class: 'btn btn-green' %>
       <% accepted_proposal = job.proposals.select { |proposal| proposal.status == "accepted" } %>
+      
       <% if policy(job).destroy? && accepted_proposal.size != 1 %>
-        <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar esse job?' } %></p>
+        <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar esse job?' }, class: 'btn btn-green' %></p>
       <% end %>      
     </li>
   <% end %>

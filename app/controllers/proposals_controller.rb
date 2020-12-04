@@ -7,10 +7,12 @@ class ProposalsController < ApplicationController
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @proposal = Proposal.new(proposal_creation_status_params)
     @proposal.job_id = @job.id
     @proposal.user_id = current_user
     @proposal.save
+    redirect_to @job, notice: "The proposal was successfully created."
   end
 
   def edit
@@ -40,6 +42,6 @@ class ProposalsController < ApplicationController
 
   def set_proposal
     @proposal = Proposal.find(params[:id])
-    # authorize @proposal
+    authorize @proposal
   end
 end

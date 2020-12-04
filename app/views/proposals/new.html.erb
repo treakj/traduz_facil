@@ -13,7 +13,7 @@
       </tbody>
     </table>
   </div>
-<h4 class="edit-title mt-4">Your proposal</h4>
+<h4 class="new-title mt-4">Your proposal</h4>
     <%= simple_form_for [ @job, @proposal ], :html => {:class => 'form-group ml-4'} do |f| %>
     <div class="row">
         <div class="edit-options col-4 bl-0 pl-0">
@@ -23,7 +23,7 @@
     </div>
     <br>
     <%= f.submit class:"btn btn-green" %>
-    <% end %>
+      <% end %>
   <hr>
   <div>
     <i class="fas fa-history"></i> <%= link_to "back home",  root_path %>
