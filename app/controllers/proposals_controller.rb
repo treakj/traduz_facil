@@ -1,9 +1,10 @@
 class ProposalsController < ApplicationController
 
-  before_action :set_proposal, only: [:edit, :update]
+  before_action :set_proposal, only: [ :edit, :update ]
 
   def edit
     @job = Job.find(params[:job_id])
+    @date = @proposal.deadline.strftime("%d.%m.%Y")
   end
 
   def update
