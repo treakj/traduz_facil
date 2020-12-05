@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">User</th>
+      <th scope="col">Bid</th>
+      <th scope="col">Due date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% proposals.each do |proposal| %>
+      <% if proposal.status == 'accepted' %>
+        <tr class='table-success'>
+      <% elsif proposal.status == 'rejected'%>
+        <tr class='table-danger'>
+      <% else %>
+        <tr>
+      <% end %>
+      <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
+      <td><%= User.find(proposal.user_id).username %></td>
+      <td>R$<%= proposal.price %></td>
+      <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
+      <td><%= link_to proposal.status.capitalize, edit_job_proposal_path(proposal.job_id, proposal) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
