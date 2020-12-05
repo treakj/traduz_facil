@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 Proposal.destroy_all
 Job.destroy_all
@@ -21,12 +16,12 @@ User.create(
   admin: true
 )
 
-index = 1
+index = 0
 require 'uri'
 
-50.times do
-  file = URI.open("https://kitt.lewagon.com/placeholder/users/#{index}")
-  index += 1
+# Jbtte - Acho que é melhor ter menos usuários, mesmo pq na demo vamos 
+# acabar mostrando apenas a jornada de dois
+20.times do
   temp = User.new(
     username: Faker::Internet.username,
     email: Faker::Internet.email,
@@ -36,11 +31,22 @@ require 'uri'
     password: "123456",
     password_confirmation: "123456",
   )
+  
+  # jbtte - buscando foto no banco de dados dado pelo le wagon
+  # adicionando uma foto
+  file = URI.open("https://kitt.lewagon.com/placeholder/users/#{index}")
+  index += 1
   temp.photo.attach(io: file, filename: "user_avatar_#{index}")
   temp.save
+  
+  # jbtte - só para imprimir alguma coisa no terminal de vez em quando
+  puts "#{index} Users have been created" if index % 5 == 0
 end
-puts "created user!"
-50.times do
+puts "All Users created!"
+
+# Jbtte - Melhor ter mais propostas, assim vai parecer que existe bastante 
+# movimentação no site
+100.times do
   #  Aqui para evitar que haja repeticao entre job e proposta do usuario
   for_job = User.find(User.pluck(:id).sample).id
   for_proposal = User.find(User.pluck(:id).sample).id
@@ -55,11 +61,9 @@ puts "created user!"
   )
 
   # para que nem todos os jobs tenham alguma proposta
-  next unless (0..99).to_a.sample > 50
-
-  # para que nem todos os jobs tenham alguma proposta
-  next unless (0..99).to_a.sample > 50
-
+  # jbtte - diminui esse numero para 30 para termos mais propostas
+  next unless (0..99).to_a.sample > 30
+  
   Proposal.create(
     job_id: Job.last.id, # Job.find(Job.pluck(:id).sample).id,
     user_id: for_proposal, # Job.find(Job.pluck(:id).sample).id,
