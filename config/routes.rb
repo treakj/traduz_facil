@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
   get '/jobs/myjobs', to: 'jobs#my_jobs'
 
-  # creating user/:id 
+  # creating user/:id
   resources :users, only: [:show]
 end
