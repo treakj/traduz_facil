@@ -7,8 +7,8 @@ class JobsController < ApplicationController
     @jobs = policy_scope(Job).order(created_at: :desc)
   end
 
-  def show
 
+  def show
     @proposals = Proposal.where(job_id: @job.id).order(status: :asc)
   end
 
@@ -44,4 +44,5 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     authorize @job
   end
+
 end

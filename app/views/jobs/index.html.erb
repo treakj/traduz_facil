@@ -1,20 +1,20 @@
 <div class="container mt-3 center-block">
-  <% @jobs.each do |job| %>
+  <div class="search">
+    
+  </div>
+  <div class="jobs-all">
+    <% @jobs.each do |job| %>
     <div class="card mt-4 col-6 mx-auto ">
       <div class="card-body d-flex ">
         <div class="col-9 card-text">
-
-            <% if job.user.photo.attached? %>
-            <%= cl_image_tag job.user.photo.key, quality: "auto", fetch_format: :auto, crop: :fill, style: 'height:48px; width: auto;', class: "border avatar avatar-large avatar-job avatar-bordered" %>
-            <% else %>
-            <%= image_tag "person-placeholder.jpg", quality: "auto", fetch_format: :auto, crop: :fill, style: 'height:48px; width: auto;', class: "border avatar avatar-job" %>
-            <% end %>
-
-            <h3 class="mt-4"><%= link_to "Tradução: #{job.content}", job_path(job) %></h3>
-            <p> <%= link_to "@#{job.user.username}", user_path(job.user) %> </p>
-
+          <% if job.user.photo.attached? %>
+          <%= cl_image_tag job.user.photo.key, quality: "auto", fetch_format: :auto, crop: :fill, style: 'height:48px; width: auto;', class: "border avatar avatar-large avatar-job avatar-bordered" %>
+          <% else %>
+          <%= image_tag "person-placeholder.jpg", quality: "auto", fetch_format: :auto, crop: :fill, style: 'height:48px; width: auto;', class: "border avatar avatar-job" %>
+          <% end %>
+          <h3 class="mt-4"><%= link_to "Tradução: #{job.content}", job_path(job) %></h3>
+          <p> <%= link_to "@#{job.user.username}", user_path(job.user) %> </p>
         </div>
-
         <div class="col-3 card-text">
           <%= link_to 'Fazer proposta', new_job_proposal_path(job), class: 'btn btn-green' %>
           <br>
@@ -23,10 +23,9 @@
           <% if policy(job).destroy? && accepted_proposal.size != 1 %>
           <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar esse job?' }, class: 'btn btn-green btn-delete' %></p>
           <% end %>
-
         </div>
       </div>
-
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
