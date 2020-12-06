@@ -8,23 +8,23 @@ class ProposalPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def new?
-      true
-    end
+  def new?
+    true
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def update?
-      admin_or_owner?
-    end
+  def update?
+    true
+  end
 
-    private
+  private
 
-    def admin_or_owner?
-      user.admin || user == Job.find(record.job_id).user_id
-    end
+  def admin_or_owner?
+    user.admin || user == Job.find(record.job_id).user_id
   end
 end

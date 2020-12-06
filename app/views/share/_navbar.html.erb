@@ -19,8 +19,8 @@
       <li class="nav-item dropdown ml-2">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Create a job", "#", class: "dropdown-item" %>
-          <%= link_to "Look for jobs", "#", class: "dropdown-item" %>
+          <%= link_to "Create a job", new_job_path, class: "dropdown-item" %>
+          <%= link_to "Look for jobs", jobs_path, class: "dropdown-item" %>
         </div>
       </li>
     </ul>
