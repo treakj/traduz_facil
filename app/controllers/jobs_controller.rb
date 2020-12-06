@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  
+
   before_action :set_job, only: [:show, :destroy]
 
   def index
@@ -8,6 +8,8 @@ class JobsController < ApplicationController
   end
 
   def show
+
+    @proposals = Proposal.where(job_id: @job.id).order(status: :asc)
   end
 
   def new
