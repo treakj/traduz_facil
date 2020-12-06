@@ -19,7 +19,7 @@
             </li>
             <li class="nav-item dropdown">
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, quality: "auto", fetch_format: :auto, crop: :fill, style: 'height:48px; width: auto;' ,class: "mt-1 ml-2 avatar dropdown-toggle border", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= cl_image_tag current_user.photo.key, quality: "auto", fetch_format: :auto, crop: :fill, style: 'height:48px; width: auto;' ,class: "avatar dropdown-toggle border", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%= link_to "Create a job", "#", class: "dropdown-item" %>
