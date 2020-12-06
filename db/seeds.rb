@@ -10,7 +10,7 @@ Proposal.destroy_all
 Job.destroy_all
 User.destroy_all
 
-User.create(
+user = User.create(
   username: 'kenji',
   email: 'teste@gmail.com',
   skill: 'Portuguese',
@@ -20,20 +20,34 @@ User.create(
   password_confirmation: "123456",
   admin: true
 )
+  file = URI.open(Faker::Avatar.image)
+  user.photo.attach(io: file, filename: "#{user.username}.png", content_type: 'image/png')
 
-200.times do
-  User.create(
-    username: Faker::Internet.username,
-    email: Faker::Internet.email,
-    skill: Faker::Nation.language,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    password: "123456",
-    password_confirmation: "123456"
-  )
+  response = Net::HTTP.get(URI("https://randomuser.me/api/?results=50"))
+  datas = JSON.parse(response)
+  datas["results"].each do |data|
+    user = User.create(
+      # username: Faker::Internet.username,
+      # email: Faker::Internet.email,
+      # skill: Faker::Nation.language,
+      # first_name: Faker::Name.first_name,
+      # last_name: Faker::Name.last_name,
+      username: data["login"]["username"],
+      email: data["email"],
+      skill: Faker::Nation.language,
+      first_name: data["name"]["first"].capitalize,
+      last_name: data["name"]["last"].capitalize,
+
+      password: "123456",
+      password_confirmation: "123456"
+    )
+    file = URI.open(data["picture"]["medium"])
+    user.photo.attach(io: file, filename: "#{user.username}.png", content_type: 'image/png')
+    puts "uploaded " + user.username
 end
+
 puts "created user!"
-50.times do
+100.times do
   #  Aqui para evitar que haja repeticao entre job e proposta do usuario
   for_job = User.find(User.pluck(:id).sample).id
   for_proposal = User.find(User.pluck(:id).sample).id
@@ -43,7 +57,7 @@ puts "created user!"
   end
 
   Job.create(
-    content: "translate #{Faker::Nation.language} to #{Faker::Nation.language}",
+    content: "Translate #{Faker::Nation.language} to #{Faker::Nation.language}",
     user_id: for_job
   )
 

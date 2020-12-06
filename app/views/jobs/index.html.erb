@@ -4,7 +4,12 @@
       <%= link_to jobs_path do %>
         <p>Tradução: <%= job.content %> </p>
       <% end %>
-      <p>Quem procura: <%= job.user.username %> </p>
+      <div row>
+        <p>Quem procura: <%= job.user.username %> </p>
+        <% if job.user.photo.attached? %> 
+          <%= cl_image_tag job.user.photo.key, quality: "auto", fetch_format: :auto, crop: :fill, style: 'height:48px; width: auto;', class: "border avatar" %>
+        <% end %>
+      </div>
       <% accepted_proposal = job.proposals.select { |proposal| proposal.status == "accepted" } %>
       <% if policy(job).destroy? && accepted_proposal.size != 1 %>
         <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar esse job?' } %></p>
