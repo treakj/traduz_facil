@@ -5,4 +5,9 @@ class UsersController < ApplicationController
     @proposals = Proposal.where(user_id: @user.id)
     authorize @user
   end
+
+  def edit
+
+  end
+
 end

@@ -17,7 +17,7 @@ class ProposalPolicy < ApplicationPolicy
   def create?
     true
   end
-
+  
   def update?
     admin_or_owner?
   end
