@@ -1,4 +1,48 @@
-<p>
-  <strong>Job:</strong>
-  <%= @job.content %>
-</p>
+
+<div class="container">
+  <div class="show-content d-flex">
+    <div class="job-info col-6">
+      <div class="card-livro">
+        <img src="https://picsum.photos/id/24/200/300" />
+        <div class="card-trip-infos">
+          <div>
+            <h4>Requested job</h4>
+            <h2><%= @job.content %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proposals-info col-6">
+      <div class="card card-proposal-show card-livro">
+        <h3 class="mt-2 pb-2"> Job Proposals</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">User</th>
+              <th scope="col">Bid</th>
+              <th scope="col">Due date</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <% @proposals.each_with_index do |proposal| %>
+          <% if proposal.status == 'accepted' %>
+            <tr class='table-success'>
+          <% elsif proposal.status == 'rejected'%>
+            <tr class='table-danger'>
+          <% else %>
+            <tr>
+          <% end %>
+              <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
+              <td><%= User.find(proposal.user_id).username %></td>
+              <td>R$<%= proposal.price %></td>
+              <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
+              <td><%= link_to proposal.status.capitalize, edit_job_proposal_path(@job, proposal) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
