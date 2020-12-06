@@ -15,13 +15,21 @@ user = User.create(
   password_confirmation: "123456",
   admin: true
 )
-  file = URI.open(Faker::Avatar.image)
-  user.photo.attach(io: file, filename: "#{user.username}.png", content_type: 'image/png')
+file = URI.open(Faker::Avatar.image)
+user.photo.attach(io: file, filename: "#{user.username}.png", content_type: 'image/png')
 
+<<<<<<< HEAD
   response = Net::HTTP.get(URI("https://randomuser.me/api/?results=20"))
   # Jbtte - Acho que é melhor ter menos usuários, mesmo pq na demo vamos 
   # acabar mostrando apenas a jornada de dois
   # kenji - Subsituído pelo API que encontrei para dar maior velocidade e consistência.  
+=======
+
+response = Net::HTTP.get(URI("https://randomuser.me/api/?results=20"))
+  # Jbtte - Acho que é melhor ter menos usuários, mesmo pq na demo vamos 
+  # acabar mostrando apenas a jornada de dois
+  # kenji - Subsituído pelo API que encontrei para dar mais consistência entre os dados.  
+>>>>>>> b3bb0a601baa87fd7afceb4b4e79c9426f2b1fd7
   datas = JSON.parse(response)
   datas["results"].each_with_index do |data, index|
     user = User.create(
