@@ -18,7 +18,7 @@ class ProposalPolicy < ApplicationPolicy
     end
 
     def update?
-      admin_or_owner?
+      true
     end
 
     private
