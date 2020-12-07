@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,6 +18,3 @@
 .navbar-brand {
   color: $green !important;
 }
-
-
-
