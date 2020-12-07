@@ -9,10 +9,10 @@
   </thead>
 
   <tbody>
-    <% @jobs.each do |job| %>
+    <% @myproposals.each do |proposal| %>
       <tr>
-        <td><%= job.id %></td>
-        <td><%= job.content %></td>        
+        <td><%= proposal.job.content %></td>
+        <td><%= proposal.job.id %></td>        
       </tr>
     <% end %>
   </tbody>

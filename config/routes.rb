@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   resources :jobs, only: %i[new create index show destroy] do
-    resources :proposals, only: %i[create update edit index show destroy]
-    resources :review, only: %i[new create]
+    resources :proposals, only: %i[index show create edit update destroy]    
+    resources :review, only: %i[new create]    
   end
-  get '/jobs/myjobs', to: 'jobs#my_jobs'
-  # get '/proposals/myjobs', to: 'proposals#my_jobs'
+
+  # Implementa a rota do users no controller do proposals, para não precisar
+  # sobrescrever o controller do devise
+  resource :users do
+    get '/:user_id/myjobs', to: 'proposals#myjobs', as: :myjobs
+  end
+  # get '/jobs/myjobs', to: 'jobs#my_jobs'
 end

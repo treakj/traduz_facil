@@ -33,10 +33,10 @@ class JobsController < ApplicationController
   end
 
   # ==>> CONTINUAR <<===
-  def my_jobs
-    @jobs = policy_scope(Job).find(@proposal.job_id).where(@proposal.user_id == current_user)
-    # .order(created_at: :desc)
-  end
+  # def my_jobs
+  #   @jobs = policy_scope(Job).find(@proposal.job_id).where(@proposal.user_id == current_user)
+  #   # .order(created_at: :desc)
+  # end
 
   private
 

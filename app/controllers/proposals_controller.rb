@@ -2,6 +2,11 @@ class ProposalsController < ApplicationController
 
   before_action :set_proposal, only: [ :edit, :update ]
 
+  def myproposals
+    @myproposals = Proposal.where(user_id: params[:user_id], status: "accepted")
+    authorize @myproposals
+  end
+
   def edit
     @job = Job.find(params[:job_id])
     @date = "#{@proposal.deadline.strftime("%d.%m.%Y")} (#{(Date.today - @proposal.deadline).ceil.abs} days)"
