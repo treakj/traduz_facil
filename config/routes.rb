@@ -7,8 +7,7 @@ Rails.application.routes.draw do
     resources :proposals, only: %i[new create update edit show destroy]
     resources :review, only: %i[new create]
   end
-  # get '/jobs/myjobs', to: 'jobs#my_jobs'
-
+ 
   # creating user/:id
   resources :users, only: [:show]
 end
