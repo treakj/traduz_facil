@@ -71,15 +71,18 @@ puts "All user created!"
 
   # para que nem todos os jobs tenham alguma proposta
   # jbtte - diminui esse numero para 30 para termos mais propostas
-  next unless (0..99).to_a.sample > 30
 
-  Proposal.create(
-    job_id: Job.last.id, # Job.find(Job.pluck(:id).sample).id,
-    user_id: for_proposal, # Job.find(Job.pluck(:id).sample).id,
-    status: 'pending',
-    price: (50..200).to_a.sample,
-    deadline: Faker::Date.forward(days: 23)
-  )
+  5.times do
+    next unless (0..99).to_a.sample > 60
+
+    Proposal.create(
+      job_id: Job.last.id, # Job.find(Job.pluck(:id).sample).id,
+      user_id: for_proposal, # Job.find(Job.pluck(:id).sample).id,
+      status: 'pending',
+      price: (50..200).to_a.sample,
+      deadline: Faker::Date.forward(days: 23)
+    )
+  end
 end
 
 puts "created proposal and job!"
