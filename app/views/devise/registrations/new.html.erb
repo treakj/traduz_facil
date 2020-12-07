@@ -7,8 +7,8 @@
    <div class="form-inputs">
         <%= f.input :email, required: true, autofocus: true %>
         <%= f.input :skill,
-                    label: "Língua",
-                    hint: "Qual sua especialidade de tradução?",
+                    label: "Idioma",
+                    hint: "Qual/quais sua(s) especialidade(s) de tradução?",
                     input_html: { autocomplete: "current-skill" } %>                 
         <%= f.input :username,
                     required: true,
@@ -20,7 +20,7 @@
                     label: "Sobrenome",
                     input_html: { autocomplete: "current-last_name" } %>
         <%= f.input :photo,
-                    hint: "Insira a figura para seu avatar!",
+                    hint: "Insira uma foto ou imagem que te identifique!",
                     as: :file %>
         
 
@@ -33,7 +33,7 @@
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
-                    label: "Confirmar a senha",
+                    label: "Confirme sua senha",
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
 
