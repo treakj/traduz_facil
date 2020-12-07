@@ -5,7 +5,14 @@
         <img src="https://picsum.photos/id/24/200/300" />
         <div class="card-trip-infos">
           <div>
-            <h4>Requested job</h4>
+            <div class="d-flex justify-content-between mr-1 mt-1 align-items-center">
+              <h4 class="pt-0">Requested job</h4>
+              <% if current_user.id != @job.user_id %>
+                <%= link_to new_job_proposal_path(@job), class: "btn btn-success" do %>
+                <%=  "Fazer proposta" %>
+                <% end %>
+              <% end %>
+            </div>
             <h2><%= @job.content %></h2>
           </div>
         </div>
@@ -40,7 +47,7 @@
               <td><%=  number_to_currency(proposal.price, precision: 2, unit: "R$", separator: ",") %></td>
               <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
               <td>
-                <% if proposal.job.user.username == current_user.username %>
+                <% if proposal.job.user.username == current_user.username || current_user.admin %>
                   <%= link_to proposal.status.capitalize, edit_job_proposal_path(@job, proposal) %>
                 <% else %>
                   <%= proposal.status.capitalize %>

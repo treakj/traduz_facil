@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_180637) do
   create_table "proposals", force: :cascade do |t|
     t.string "status", default: "pending"
     t.bigint "job_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "price"
