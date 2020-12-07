@@ -11,7 +11,7 @@
               <h4 class="pt-0">Serviço de tradução</h4>
               <% if current_user.id != @job.user_id %>
                 <%= link_to new_job_proposal_path(@job), class: "btn btn-success" do %>
-                <%=  "Fazer proposta" %>
+                <%= "Fazer proposta" %>
                 <% end %>
               <% end %>
             </div>
@@ -43,7 +43,8 @@
             <% else %>	
               <tr>	
             <% end %> 	
-
+           <% end %>
+           
           <% @proposals.each_with_index do |proposal| %>
               <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
               <td><%= User.find(proposal.user_id).username %></td>
@@ -61,7 +62,6 @@
                 
                 <% if proposal.job.user.username == current_user.username || current_user.admin %>
                   <%= link_to proposal.status.capitalize, edit_job_proposal_path(@job, proposal) %>
-
                 <% else %>
                   <%= proposta %>
                 <% end %>
