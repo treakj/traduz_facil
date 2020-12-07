@@ -1,10 +1,10 @@
 <div class="container">
-  <h2 class="edit-title mt-4">Create new proposal</h2>
+  <h2 class="edit-title mt-4">Fazer nova proposta</h2>
   <div class="col-6 mt-4 mb-4">
     <table class="table table-striped">
       <tbody>
         <tr>
-          <th scope="row">Selected job:</th>
+          <th scope="row">Serviço:</th>
           <td><%= @job.content %></td>
         </tr>
         <tr>
@@ -13,12 +13,12 @@
       </tbody>
     </table>
   </div>
-<h4 class="new-title mt-4">Your proposal</h4>
+<h4 class="new-title mt-4">Sua proposta:</h4>
     <%= simple_form_for [ @job, @proposal ], :html => {:class => 'form-group ml-4'} do |f| %>
     <div class="row">
         <div class="edit-options col-4 bl-0 pl-0">
-        <%= f.input :price %>
-        <%= f.input :deadline %>
+        <%= f.input :price, label: "proponha seu preço" %>
+        <%= f.input :deadline, label: "proponha seu prazo" %>
       </div>
     </div>
     <br>

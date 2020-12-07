@@ -1,11 +1,11 @@
 <div class = "container mt-5">
-  <h1>New job</h1>
+  <h1>Nova solicitação de tradução</h1>
   <%= simple_form_for (@job) do |f| %>        
     <%= f.input :content %>       
     <%= f.button :submit, class: 'btn btn-green' %>      
   <% end %>
 
   <div>
-  <%= link_to 'Back', jobs_path, class: 'btn btn-green' %>
+  <%= link_to 'Voltar', jobs_path, class: 'btn btn-green' %>
   </div>
 </div>

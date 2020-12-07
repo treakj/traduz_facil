@@ -4,19 +4,19 @@
     <table class="table table-striped">
       <tbody>
         <tr>
-          <th scope="row">Job description:</th>
+          <th scope="row">Descrição do serviço:</th>
           <td><%= Job.find(@proposal.job_id).content %></td>
         </tr>
         <tr>
-          <th scope="row">User:</th>
+          <th scope="row">Usuário:</th>
           <td><%= User.find(@proposal.user_id).username %></td>
         </tr>
         <tr>
-          <th scope="row">Price</th>
+          <th scope="row">Preço proposto:</th>
           <td>R$ <%= @proposal.price %></td>
         </tr>
         <tr>
-          <th scope="row">Deadline established</th>
+          <th scope="row">Prazo proposto:</th>
           <td><%= @date %></td>
         </tr>
       </tbody>
@@ -28,9 +28,9 @@
       <%= f.label :status, class:"edit-label col-1 br-0 pr-0" %>
       <div class="edit-options col-4 bl-0 pl-0">
         <%= f.collection_radio_buttons :status, [
-        ['pending', 'Pending'],
-        ['accepted', 'Accept'],
-        ['rejected', 'Reject']],
+        ['pending', 'Pendente'],
+        ['accepted', 'Aceito'],
+        ['rejected', 'Rejeitado']],
         :first, :last, item_wrapper_tag: :div %>
       </div>
     </div>

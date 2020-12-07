@@ -9,7 +9,7 @@
       <div class="card-body">
         <h5 class="card-title">@<%= @user.username %></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%= " #{@user.first_name} #{@user.last_name}" %></h6>
-        <p class="card-text">Languages: <%= @user.skill %></p>
+        <p class="card-text">Lingua: <%= @user.skill %></p>
       </div>
     </div>
 
@@ -27,14 +27,14 @@
       <div class="tab-pane fade show active" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
         <div>
           <div class="card card-proposal-show card-livro">
-            <h3 class="mt-2 pb-2 pl-3 pt-2"> Jobs you posted </h3>
+            <h3 class="mt-2 pb-2 pl-3 pt-2"> Trabalhos solicitados </h3>
             <%= render partial: "share/table_jobs", locals: { jobs: @jobs } %>
           </div>
         </div>
       </div>
       <div class="tab-pane fade" id="proposals" role="tabpanel" aria-labelledby="proposals-tab">
         <div class="card card-proposal-show card-livro">
-          <h3 class="mt-2 pb-2 pl-3 pt-2"> Proposals you made </h3>
+          <h3 class="mt-2 pb-2 pl-3 pt-2"> Propostas enviadas </h3>
           <%= render partial: "share/table_proposal", locals: { proposals: @proposals, job: @job } %>
         </div>
       </div>

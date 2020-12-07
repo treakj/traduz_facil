@@ -1,12 +1,10 @@
 class JobsController < ApplicationController
-
-  before_action :set_job, only: [:show, :destroy]
+  before_action :set_job, only: %i[show destroy]
 
   def index
     # @restaurants = Restaurant.all
     @jobs = policy_scope(Job).order(created_at: :desc)
   end
-
 
   def show
     @proposals = Proposal.where(job_id: @job.id).order(status: :asc)
@@ -44,5 +42,4 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     authorize @job
   end
-
 end
