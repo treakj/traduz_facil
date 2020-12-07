@@ -8,7 +8,7 @@
           <td><%= @job.content %></td>
         </tr>
         <tr>
-          
+
         </tr>
       </tbody>
     </table>
@@ -17,8 +17,12 @@
     <%= simple_form_for [ @job, @proposal ], :html => {:class => 'form-group ml-4'} do |f| %>
     <div class="row">
         <div class="edit-options col-4 bl-0 pl-0">
-        <%= f.input :price, label: "proponha seu preço" %>
-        <%= f.input :deadline, label: "proponha seu prazo" %>
+
+        <%= f.input :price, label: "proponha seu preço", class: "form-control" %>
+        <div class="date-new-proposal">
+           <%= f.input :deadline, as: :date, order:[:day, :month, :year], start_year: Date.today.year, class: "form-control", label: "proponha seu prazo" %>
+        </div>
+
       </div>
     </div>
     <br>
@@ -29,3 +33,4 @@
     <i class="fas fa-history"></i> <%= link_to "back home",  root_path %>
   </div>
 </div>
+
