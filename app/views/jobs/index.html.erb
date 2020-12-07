@@ -28,7 +28,9 @@
           <p> <%= link_to "@#{job.user.username}", user_path(job.user) %> </p>
         </div>
         <div class="col-3 card-text">
+          <% if current_user.id != job.user_id %>
           <%= link_to 'Fazer proposta', new_job_proposal_path(job), class: 'btn btn-green' %>
+          <% end %>
           <br>
           <% accepted_proposal = job.proposals.select { |proposal| proposal.status == "accepted" } %>
           <br>
