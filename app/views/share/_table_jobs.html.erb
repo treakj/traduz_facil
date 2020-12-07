@@ -10,8 +10,8 @@
     <% jobs.each do |job| %>
       <tr>
       <th scope="row" class=""><i class="fas fa-circle"></i></th>
-      <td><%= job.content %></td>
-      <td><%= link_to Proposal.where(job_id: job.id).count, job_path(job) %></td>
+      <td><%= link_to job.content, job_path(job) %></td>
+      <td><%= Proposal.where(job_id: job.id).count  %></td>
       </tr>
     <% end %>
   </tbody>
