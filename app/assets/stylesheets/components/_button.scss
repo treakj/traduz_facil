@@ -6,6 +6,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-green:hover {
@@ -16,4 +17,14 @@
 .btn-delete:hover {
   opacity: 1;
   background-color: red;
+}
+
+.back-button {
+  text-decoration: none;
+  color: white;
+}
+
+.back-button:hover {
+  text-decoration: none;
+  color: white;
 }
