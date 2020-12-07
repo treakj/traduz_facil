@@ -1,11 +1,13 @@
 <div class = "container mt-5">
   <h1>Nova solicitação de tradução</h1>
   <%= simple_form_for (@job) do |f| %>        
-    <%= f.input :content %>       
-    <%= f.button :submit, class: 'btn btn-green' %>      
+    <%= f.input :content, label: "Descreva sua demanda. \n
+    Seja o mais preciso possível: número de páginas, tipo de documento, idiomas de origem e destino" %>       
+   <div class="row">
+   <%= f.submit "Criar pedido", class: 'btn btn-green my-3 mx-3', label: "Criar pedido" %>      
+   <%= link_to 'Voltar', jobs_path, class: 'btn btn-green my-3 mx-3' %>
+    </div>
   <% end %>
 
-  <div>
-  <%= link_to 'Voltar', jobs_path, class: 'btn btn-green' %>
-  </div>
+ 
 </div>
