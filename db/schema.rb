@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_172823) do
+ActiveRecord::Schema.define(version: 2020_12_07_180637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_172823) do
   end
 
   create_table "proposals", force: :cascade do |t|
-    t.string "status", default: "Pending"
+    t.string "status", default: "pending"
     t.bigint "job_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

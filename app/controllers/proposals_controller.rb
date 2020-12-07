@@ -10,7 +10,8 @@ class ProposalsController < ApplicationController
     @job = Job.find(params[:job_id])
     @proposal = Proposal.new(proposal_creation_status_params)
     @proposal.job_id = @job.id
-    @proposal.user_id = current_user
+    @proposal.user_id = current_user.id
+    @proposal.status = "pending"
     @proposal.save
     redirect_to @job, notice: "The proposal was successfully created."
   end
@@ -26,7 +27,7 @@ class ProposalsController < ApplicationController
 
   def destroy
     @proposal = Proposal.find(params[:id])
-    if current_user.admin || @proposal.user_id == current_user.id 
+    if current_user.admin || @proposal.user_id == current_user.id
       @proposal.delete
       redirect_to user_path(current_user), notice: "The proposal was successfully deleted."
     end

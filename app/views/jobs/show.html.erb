@@ -26,19 +26,19 @@
             </tr>
           </thead>
           <% @proposals.each_with_index do |proposal| %>
-          <% if proposal.status == 'accepted' %>
-            <tr class='table-success'>
-          <% elsif proposal.status == 'rejected'%>
-            <tr class='table-danger'>
-          <% else %>
-            <tr>
-          <% end %>
-              <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
-              <td><%= User.find(proposal.user_id).username %></td>
-              <td>R$<%= proposal.price %></td>
-              <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
-              <td><%= link_to proposal.status.capitalize, edit_job_proposal_path(@job, proposal) %></td>
-            </tr>
+            <% if proposal.status == 'accepted' %>
+              <tr class='table-success'>
+            <% elsif proposal.status == 'rejected'%>
+              <tr class='table-danger'>
+            <% else %>
+              <tr>
+            <% end %>
+                <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
+                <td><%= User.find(proposal.user_id).username %></td>
+                <td>R$<%= proposal.price %></td>
+                <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
+                <td><%= link_to proposal.status.capitalize, edit_job_proposal_path(@job, proposal) %></td>
+              </tr>
           <% end %>
         </table>
       </div>
