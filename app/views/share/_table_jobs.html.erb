@@ -2,14 +2,14 @@
   <thead>
     <tr>
       <th scope="col"></th>
-      <th scope="col">Description</th>
-      <th scope="col">Number of proposals</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Número de propostas</th>
     </tr>
   </thead>
   <tbody>
     <% jobs.each do |job| %>
       <tr>
-      <th scope="row" class=""><i class="fas fa-circle"></i></th>
+      <th scope="row" class=<%= job.completed ? "accepted-status" : "pending-status" %>><i class="fas fa-circle"></i></th>
       <td><%= link_to job.content, job_path(job) %></td>
       <td><%= Proposal.where(job_id: job.id).count  %></td>
       </tr>
