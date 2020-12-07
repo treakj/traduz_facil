@@ -5,7 +5,6 @@ class JobsController < ApplicationController
     # @restaurants = Restaurant.all
     if params[:query].present?
       @jobs = policy_scope(Job.search_by_language(params[:query]))
-
     else
       @jobs = policy_scope(Job.all).order(created_at: :desc)
     end
