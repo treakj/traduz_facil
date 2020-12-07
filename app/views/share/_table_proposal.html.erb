@@ -1,0 +1,36 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">User</th>
+      <th scope="col">Bid</th>
+      <th scope="col">Due date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% proposals.each do |proposal| %>
+      <% if proposal.status == 'accepted' %>
+        <tr class='table-success'>
+      <% elsif proposal.status == 'rejected'%>
+        <tr class='table-danger'>
+      <% else %>
+        <tr>
+      <% end %>
+      <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
+      <td><%= User.find(proposal.user_id).username %></td>
+      <td>R$<%= proposal.price %></td>
+      <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
+      <td><%= proposal.status.capitalize %></td>
+      <% if current_user.admin || proposal.user_id == current_user.id  %>
+        <td>
+          <%= link_to job_proposal_path(proposal.job_id, proposal), method: "Delete", class: "green-font", data: {confirm: "You Sure?"} do %>
+              <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

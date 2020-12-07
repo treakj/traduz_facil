@@ -4,3 +4,48 @@
   border-radius: 4px;                        /* Small radius */
   box-shadow: 0 10px 30px rgba(0,0,0,.1);    /* Light shadow */
 }
+
+.card-livro {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card-livro > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-livro h2 {
+
+  font-weight: bold;
+  padding: 10px 10px;
+  margin: 0;
+}
+
+.card-livro h4 {
+  padding-top: 10px;
+  padding-left: 15px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-livro .card-livro-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-livro-infos .card-livro-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}

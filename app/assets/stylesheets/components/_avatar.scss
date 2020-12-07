@@ -1,14 +1,15 @@
 .avatar {
   width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
 }
 .avatar-large {
-  width: 56px;
+  width: 64px !important;
+  height: 64px !important;
   border-radius: 50%;
 }
 .avatar-bordered {
-  width: 40px;
-  border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
@@ -17,4 +18,10 @@
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.avatar-job {
+  position: absolute;
+  left: -45px;
+  top: -30px;
 }

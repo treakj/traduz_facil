@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Description</th>
+      <th scope="col">Number of proposals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% jobs.each do |job| %>
+      <tr>
+      <th scope="row" class=""><i class="fas fa-circle"></i></th>
+      <td><%= link_to job.content, job_path(job) %></td>
+      <td><%= Proposal.where(job_id: job.id).count  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

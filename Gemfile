@@ -32,14 +32,17 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
-# gemas que utilizamos no projeto para autorizacao/autenticacao
+# Gemas que utilizamos no projeto:
+# Para autorizacao/autenticacao
 gem 'devise'
 gem 'pundit'
+# Search Engine
+gem 'pg_search', '~> 2.3.0'
 
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: [:development, :test]
 
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

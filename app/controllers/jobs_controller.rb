@@ -1,13 +1,20 @@
 class JobsController < ApplicationController
-  
-  before_action :set_job, only: [:show, :destroy, :my_jobs]
+
+  before_action :set_job, only: [:show, :destroy]
 
   def index
     # @restaurants = Restaurant.all
-    @jobs = policy_scope(Job).order(created_at: :desc)
+    if params[:query].present?
+      @jobs = policy_scope(Job.search_by_language(params[:query]))
+
+    else
+      @jobs = policy_scope(Job.all).order(created_at: :desc)
+    end
   end
 
+
   def show
+    @proposals = Proposal.where(job_id: @job.id).order(status: :asc)
   end
 
   def new
@@ -48,4 +55,5 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     authorize @job
   end
+
 end
