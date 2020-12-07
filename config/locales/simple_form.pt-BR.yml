@@ -1,15 +1,15 @@
-en:
+pt:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Sim'
+    "no": 'Não'
     required:
-      text: 'required'
+      text: 'Preenchimento obrigatório'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Por favor revise os problemas indicados abaixo:"
     # Examples
     # labels:
     #   defaults:
@@ -29,9 +29,9 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
-  month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
-  abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+  month_names: [~, 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', Dezembro]
+  abbr_month_names: [~, 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
   order:
-      - :year
-      - :month
       - :day
+      - :month
+      - :year
