@@ -6,6 +6,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-green:hover {
@@ -22,3 +23,14 @@
   padding: 4px 16px !important;
   font-size: 12px !important;
 }
+
+.back-button {
+  text-decoration: none;
+  color: white;
+}
+
+.back-button:hover {
+  text-decoration: none;
+  color: white;
+}
+

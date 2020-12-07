@@ -22,9 +22,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Search Engine
-gem 'pg_search', '~> 2.3.0'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -35,9 +32,12 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
-# gemas que utilizamos no projeto para autorizacao/autenticacao
+# Gemas que utilizamos no projeto:
+# Para autorizacao/autenticacao
 gem 'devise'
 gem 'pundit'
+# Search Engine
+gem 'pg_search', '~> 2.3.0'
 
 group :development, :test do
   gem 'pry-byebug'
