@@ -26,17 +26,18 @@
           </thead>
           <% @proposals.each_with_index do |proposal| %>
             <% if proposal.status == 'accepted' %>
-              <tr class='table-success'> 
+              <tr class='table-success'>
             <% elsif proposal.status == 'rejected'%>
-              <tr class='table-danger'> 
+              <tr class='table-danger'>
             <% else %>
               <tr>
-            <% end %> 
-          <% end %> 
+            <% end %>
+          <% end %>
           <% @proposals.each_with_index do |proposal| %>
               <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
               <td><%= User.find(proposal.user_id).username %></td>
-              <td>R$<%= proposal.price %></td>
+
+              <td><%=  number_to_currency(proposal.price, precision: 2, unit: "R$", separator: ",") %></td>
               <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
               <td>
                 <% if proposal.job.user.username == current_user.username %>
@@ -52,4 +53,3 @@
     </div>
   </div>
 </div>
-
