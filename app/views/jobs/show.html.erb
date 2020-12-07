@@ -14,7 +14,7 @@
     </div>
     <div class="proposals-info col-6">
       <div class="card card-proposal-show card-livro">
-        <h3 class="mt-2 pb-2">Propostas para essa tradução</h3>
+        <h3 class="mt-2 pb-2">Propostas recebidas</h3>
         <table class="table">
           <thead>
             <tr>
@@ -25,6 +25,15 @@
               <th scope="col">Status</th>
             </tr>
           </thead>
+           <% @proposals.each_with_index do |proposal| %>	
+            <% if proposal.status == 'accepted' %>	
+              <tr class='table-success'> 	
+            <% elsif proposal.status == 'rejected'%>	
+              <tr class='table-danger'> 	
+            <% else %>	
+              <tr>	
+            <% end %> 	
+          
           <% @proposals.each_with_index do |proposal| %>
               <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
               <td><%= User.find(proposal.user_id).username %></td>
