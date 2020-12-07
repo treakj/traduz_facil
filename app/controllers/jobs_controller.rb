@@ -3,7 +3,11 @@ class JobsController < ApplicationController
 
   def index
     # @restaurants = Restaurant.all
-    @jobs = policy_scope(Job).order(created_at: :desc)
+    if params[:query].present?
+      @jobs = policy_scope(Job.search_by_language(params[:query]))
+    else
+      @jobs = policy_scope(Job.all).order(created_at: :desc)
+    end
   end
 
   def show
