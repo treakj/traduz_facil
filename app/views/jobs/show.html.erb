@@ -7,8 +7,10 @@
           <div>
             <div class="d-flex justify-content-between mr-1 mt-1 align-items-center">
               <h4 class="pt-0">Requested job</h4>
-              <%= link_to new_job_proposal_path(@job), class: "btn btn-success" do %>
-              <%=  "Fazer proposta" %>
+              <% if current_user.id != @job.user_id %>
+                <%= link_to new_job_proposal_path(@job), class: "btn btn-success" do %>
+                <%=  "Fazer proposta" %>
+                <% end %>
               <% end %>
             </div>
             <h2><%= @job.content %></h2>
