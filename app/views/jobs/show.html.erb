@@ -38,7 +38,13 @@
               <td><%= User.find(proposal.user_id).username %></td>
               <td>R$<%= proposal.price %></td>
               <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
-              <td><%= link_to proposal.status.capitalize, edit_job_proposal_path(@job, proposal) %></td>
+              <td>
+                <% if proposal.job.user.username == current_user.username %>
+                  <%= link_to proposal.status.capitalize, edit_job_proposal_path(@job, proposal) %>
+                <% else %>
+                  <%= proposal.status.capitalize %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </table>
