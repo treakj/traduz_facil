@@ -40,7 +40,7 @@ datas["results"].each_with_index do |data, index|
     password: "123456",
     password_confirmation: "123456"
   )
-  file = URI.open(data["picture"]["medium"])
+  file = URI.open(data["picture"]["large"])
   user.photo.attach(io: file, filename: "#{user.username}.png", content_type: 'image/png')
   # kenji - aqui acho que pode ser qualquer um mas deixei esse para dar consistência de genero com nome.
   # file = URI.open("https://kitt.lewagon.com/placeholder/users/#{index}")
