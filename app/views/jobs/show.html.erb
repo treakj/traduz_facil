@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="show-content d-flex">
     <div class="job-info col-6">
@@ -24,16 +25,14 @@
               <th scope="col">Status</th>
             </tr>
           </thead>
-
-          <% if proposal.status == 'Aceito' %>
-            <tr class='table-success'>
-          <% elsif proposal.status == 'Rejeitado'%>
-            <tr class='table-danger'>
-          <% else %>
-            <tr>
-          <% end %>
-
           <% @proposals.each_with_index do |proposal| %>
+              <% if proposal.status == 'Aceito' %>
+                <tr class='table-success'>
+              <% elsif proposal.status == 'Rejeitado'%>
+                <tr class='table-danger'>
+              <% else %>
+                <tr>
+              <% end %>
               <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
               <td><%= User.find(proposal.user_id).username %></td>
               <td>R$<%= proposal.price %></td>
