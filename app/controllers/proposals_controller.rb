@@ -11,8 +11,9 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_creation_status_params)
     @proposal.job_id = @job.id
     @proposal.user_id = current_user.id
-    # raise
-    redirect_to @job, notice: "The proposal was successfully created." if @proposal.save
+    @proposal.status = "pending"
+    @proposal.save
+    redirect_to @job, notice: "The proposal was successfully created."
   end
 
   def edit
