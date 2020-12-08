@@ -25,7 +25,7 @@ class JobsController < ApplicationController
     authorize @job
 
     if @job.save
-      redirect_to @job, notice: 'Job was successfully created.'
+      redirect_to @job, notice: 'Sua demanda de tradução foi criada com sucesso.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_url, notice: 'Job was successfully destroyed.'
+    redirect_to jobs_url, notice: 'Sua demanda de tradução foi excluíd.'
   end
 
   # ==>> CONTINUAR <<===
