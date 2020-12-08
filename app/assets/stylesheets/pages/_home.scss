@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+.oquequero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.corpodapaz {
+  flex: 1 0 auto;
+}
+
+.footerdapaz {
+  flex-shrink: 0;
+}
