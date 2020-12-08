@@ -21,7 +21,8 @@ class ProposalsController < ApplicationController
   end
 
   def edit
-    @date = "#{@proposal.deadline.strftime('%d.%m.%Y')} (#{(Date.today - @proposal.deadline).ceil.abs} days)"
+    days_to_due_date = (Date.today - @proposal.deadline).ceil.abs
+    @date = "#{@proposal.deadline.strftime('%d.%m.%Y')} (#{days_to_due_date} #{ days_to_due_date > 1 ? "dias" : "dia"})"
   end
 
   def update

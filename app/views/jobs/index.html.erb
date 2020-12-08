@@ -5,11 +5,11 @@
       <%= text_field_tag :query,
       params[:query],
       class: "form-control search-bar",
-      placeholder: "Find a language"
+      placeholder: "Encontre um idioma"
       %>
     </div>
     <div class="col-md-2 col-sm-6">
-      <%= submit_tag "Search", class: "btn btn-green ml-2" %>
+      <%= submit_tag "Procurar", class: "btn btn-green ml-2" %>
     </div>
     <% end %>
   </div>
@@ -35,7 +35,7 @@
           <% accepted_proposal = job.proposals.select { |proposal| proposal.status == "accepted" } %>
           <br>
           <% if policy(job).destroy? && accepted_proposal.size != 1 %>
-          <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar esse job?' }, class: 'btn btn-green btn-delete btn-small' %></p>
+          <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar essa demanda de tradução?' }, class: 'btn btn-green btn-delete btn-small' %></p>
           <% end %>
         </div>
       </div>

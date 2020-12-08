@@ -38,7 +38,9 @@
     <%= f.submit class:"btn btn-green" %>
     <% end %>
   <hr>
-  <div class="btn-green">
-    <i class="fas fa-history"></i> <%= link_to "back home",  root_path %>
+  <div class="mb-3">
+  <%= link_to :back do %>
+    <i class="fas fa-history"> Voltar </i>
+  <% end %>
   </div>
 </div>

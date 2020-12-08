@@ -12,6 +12,9 @@ class JobsController < ApplicationController
 
   def show
     @proposals = Proposal.where(job_id: @job.id).order(status: :asc)
+
+    @accepted_proposal = Proposal.where(job_id: @job.id, status: "accepted")[0]
+
   end
 
   def new
@@ -33,7 +36,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_url, notice: 'Sua demanda de tradução foi excluíd.'
+    redirect_to jobs_url, notice: 'A demanda de tradução foi apagada com sucesso.'
   end
 
   # ==>> CONTINUAR <<===
