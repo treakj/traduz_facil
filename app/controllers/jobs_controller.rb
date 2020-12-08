@@ -28,7 +28,7 @@ class JobsController < ApplicationController
     authorize @job
 
     if @job.save
-      redirect_to @job, notice: 'A demanda de tradução foi criada com sucesso.'
+      redirect_to @job, notice: 'Sua demanda de tradução foi criada com sucesso.'
     else
       render :new
     end

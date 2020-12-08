@@ -2,11 +2,11 @@
   <thead>
     <tr>
       <th scope="col"></th>
-      <th scope="col">User</th>
-      <th scope="col">Bid</th>
-      <th scope="col">Due date</th>
+      <th scope="col">Usuário</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Prazo</th>
       <th scope="col">Status</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Apagar</th>
     </tr>
   </thead>
   <tbody>
@@ -25,7 +25,7 @@
       <td><%= proposal.status.capitalize %></td>
       <% if current_user.admin || proposal.user_id == current_user.id  %>
         <td>
-          <%= link_to job_proposal_path(proposal.job_id, proposal), method: "Delete", class: "green-font", data: {confirm: "You Sure?"} do %>
+          <%= link_to job_proposal_path(proposal.job_id, proposal), method: "Delete", class: "green-font", data: {confirm: "Tem certeza?"} do %>
               <i class="fas fa-trash-alt"></i>
           <% end %>
         </td>
