@@ -10,7 +10,7 @@
         <div class="info flex-grow">
           <h5 class="card-title">@<%= @user.username %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= " #{@user.first_name} #{@user.last_name}" %></h6>
-          <p class="card-text">Língua: <%= @user.skill %></p>
+          <p class="card-text">Idioma: <%= @user.skill %></p>
         </div>
         <% if current_user == @user %>
         <div class="edit-profile">
