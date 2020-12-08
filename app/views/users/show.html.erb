@@ -39,13 +39,13 @@
             <h3 class="mt-2 pb-2 pl-3 pt-2">Trabalhos solicitados</h3>
             <div class="dropdown">
               <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Status
+                Situação
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <%= link_to 'Pendente', users_show_path(filter: 'pending', id: current_user.id), class: 'dropdown-item' %>
                 <%= link_to 'Aceito', users_show_path(filter: 'accepted', id: current_user.id), class: 'dropdown-item' %>
                 <%= link_to 'Rejeitado', users_show_path(filter: 'rejected', id: current_user.id), class: 'dropdown-item' %>
-                <%= link_to 'Todos', users_show_path(id: current_user.id), class: 'dropdown-item' %>
+                <%= link_to 'Todas', users_show_path(id: current_user.id), class: 'dropdown-item' %>
               </div>
             </div>
             <p></p>
