@@ -46,9 +46,9 @@
               <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
               <td>
                 <% proposal.status = "pending" if proposal.status.nil? %>
-                <% if proposal.status.capitalize == "accepted" %>
+                <% if proposal.status == "accepted" %>
                   <% proposta = "Aceito" %>
-                <% elsif proposal.status.capitalize == "rejected" %>
+                <% elsif proposal.status == "rejected" %>
                   <% proposta = "Rejeitado" %>
                 <% else %>
                   <% proposta = "Pendente"  %>
