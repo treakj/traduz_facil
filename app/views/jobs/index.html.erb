@@ -35,7 +35,7 @@
           <% accepted_proposal = job.proposals.select { |proposal| proposal.status == "accepted" } %>
           <br>
           <% if policy(job).destroy? && accepted_proposal.size != 1 %>
-          <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar esse job?' }, class: 'btn btn-green btn-delete btn-small' %></p>
+          <p><%= link_to 'Apagar', job, method: :delete, data: { confirm: 'Tem certeza que deseja apagar essa demanda de tradução?' }, class: 'btn btn-green btn-delete btn-small' %></p>
           <% end %>
         </div>
       </div>
