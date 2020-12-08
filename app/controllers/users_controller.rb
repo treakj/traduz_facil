@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     
     if params[:filter].present?
       query = "proposals.user_id = ? AND proposals.status = ?"
-      @jobs = Proposal.joins(:job).where(query, @user.id, params[:filter])
+      @proposals = Proposal.joins(:job).where(query, @user.id, params[:filter])
     end
     authorize @user
   end
