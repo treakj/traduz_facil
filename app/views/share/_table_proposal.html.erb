@@ -9,7 +9,7 @@
       <th scope="col">Apagar</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="proposalT">
     <% proposals.each do |proposal| %>
       <% if proposal.status == 'accepted' %>
         <tr class='table-success'>
@@ -19,10 +19,17 @@
         <tr>
       <% end %>
       <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
-      <td><%= User.find(proposal.user_id).username %></td>
+      <td><%= link_to Job.find(proposal.job_id).user.username, job_path(proposal.job_id) %></td>
       <td>R$<%= proposal.price %></td>
       <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
-      <td><%= proposal.status.capitalize %></td>
+
+      <% if proposal.status == "accepted" %>
+        <td><a href="/" type="button" data-toggle="modal" data-target="#acceptedProposal" id ="proposalBox" data-proposalid="<%= proposal.id %>">
+          <%= proposal.status.capitalize %>
+        </a></td>  
+      <% else %>
+        <td><%= proposal.status.capitalize %></td>
+      <% end %>
       <% if current_user.admin || proposal.user_id == current_user.id  %>
         <td>
           <%= link_to job_proposal_path(proposal.job_id, proposal), method: "Delete", class: "green-font", data: {confirm: "Tem certeza?"} do %>
