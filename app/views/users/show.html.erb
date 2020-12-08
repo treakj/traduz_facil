@@ -10,7 +10,7 @@
         <div class="info flex-grow">
           <h5 class="card-title">@<%= @user.username %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= " #{@user.first_name} #{@user.last_name}" %></h6>
-          <p class="card-text">Língua: <%= @user.skill %></p>
+          <p class="card-text">Idioma: <%= @user.skill %></p>
         </div>
         <% if current_user == @user %>
         <div class="edit-profile">
@@ -26,7 +26,7 @@
   <div class="jobs-proposal-info ml-5 mt-3 mb-3 card card-jb-info col-8">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#jobs" role="tab" aria-controls="home" aria-selected="true">Meus trabalhos</a>
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#jobs" role="tab" aria-controls="home" aria-selected="true">Minhas demandas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#proposals" role="tab" aria-controls="profile" aria-selected="false">Minhas propostas</a>
