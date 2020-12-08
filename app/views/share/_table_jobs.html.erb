@@ -7,11 +7,11 @@
     </tr>
   </thead>
   <tbody>
-    <% jobs.each do |job| %>
+    <% @proposals.each do |proposal| %>
       <tr>
-      <th scope="row" class=<%= job.completed? ? "accepted-status" : "pending-status" %>><i class="fas fa-circle"></i></th>
-      <td><%= link_to job.content, job_path(job) %></td>
-      <td><%= Proposal.where(job_id: job.id).count  %></td>
+      <th scope="row" class=<%= proposal.job.completed ? "accepted-status" : "pending-status" %>><i class="fas fa-circle"></i></th>      
+      <td><%= link_to proposal.job.content, job_path(proposal.job) %></td>
+      <td><%= @proposals.count  %></td>
       </tr>
     <% end %>
   </tbody>
