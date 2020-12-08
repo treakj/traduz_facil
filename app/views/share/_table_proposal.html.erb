@@ -19,7 +19,7 @@
         <tr>
       <% end %>
       <th scope="row" class=<%= "#{proposal.status}-status"%>><i class="fas fa-circle"></i></th>
-      <td><%= User.find(proposal.user_id).username %></td>
+      <td><%= link_to Job.find(proposal.job_id).user.username, job_path(proposal.job_id) %></td>
       <td>R$<%= proposal.price %></td>
       <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
 

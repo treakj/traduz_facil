@@ -26,17 +26,18 @@
   <div class="jobs-proposal-info ml-5 mt-3 mb-3 card card-jb-info col-8">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#jobs" role="tab" aria-controls="home" aria-selected="true">Meus trabalhos</a>
+        <a class="nav-link active" id="home-tab"  data-toggle="tab" href="#jobs" role="tab" aria-controls="home" aria-selected="true">Traduções Requisitadas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#proposals" role="tab" aria-controls="profile" aria-selected="false">Minhas propostas</a>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#proposals" role="tab" aria-controls="profile" aria-selected="false" >Minhas propostas</a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active box_fora" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
+      <div class="tab-pane fade show  active box_fora" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
         <div>
           <div class="card card-proposal-show card-livro pb-10 box_dentro">
             <h3 class="mt-2 pb-2 pl-3 pt-2">Trabalhos solicitados</h3>
+
             <div class="dropdown">
               <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Situação
@@ -49,6 +50,7 @@
               </div>
             </div>
             <p></p>
+
             <%= render partial: "share/table_jobs", locals: { jobs: @jobs } %>
           </div>
         </div>
@@ -56,6 +58,18 @@
       <div class="tab-pane fade" id="proposals" role="tabpanel" aria-labelledby="proposals-tab">
         <div class="card card-proposal-show card-livro">
           <h3 class="mt-2 pb-2 pl-3 pt-2"> Propostas enviadas </h3>
+          <div class="dropdown">
+            <button class="btn btn-secondary active btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Status
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to 'Pendente', users_show_path(filter: 'pending', id: current_user.id), class: 'dropdown-item' %>
+              <%= link_to 'Aceito', users_show_path(filter: 'accepted', id: current_user.id), class: 'dropdown-item' %>
+              <%= link_to 'Rejeitado', users_show_path(filter: 'rejected', id: current_user.id), class: 'dropdown-item' %>
+              <%= link_to 'Todos', users_show_path(id: current_user.id), class: 'dropdown-item' %>
+            </div>
+          </div>
+          <p></p>
           <%= render partial: "share/table_proposal", locals: { proposals: @proposals, job: @job } %>
         </div>
       </div>

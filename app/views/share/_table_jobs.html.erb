@@ -7,10 +7,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @proposals.each do |proposal| %>
+    <% jobs.each do |job| %>
       <tr>
-      <th scope="row" class=<%= proposal.job.completed ? "accepted-status" : "pending-status" %>><i class="fas fa-circle"></i></th>      
-      <td><%= link_to proposal.job.content, job_path(proposal.job) %></td>
+      <th scope="row" class=<%= job.completed ? "accepted-status" : "pending-status" %>><i class="fas fa-circle"></i></th>      
+      <td><%= link_to job.content, job_path(job) %></td>
       <td><%= @proposals.count  %></td>
       </tr>
     <% end %>
