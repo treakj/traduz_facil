@@ -9,7 +9,7 @@
       <th scope="col">Delete</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="proposalT">
     <% proposals.each do |proposal| %>
       <% if proposal.status == 'accepted' %>
         <tr class='table-success'>
@@ -23,8 +23,8 @@
       <td>R$<%= proposal.price %></td>
       <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
 
-      <% if proposal.status == "pending" %>
-        <td><a href="#" type="button" data-toggle="modal" data-target="#acceptedProposal" id ="proposalBox" data-proposalid="<%= proposal.id %>">
+      <% if proposal.status == "accepted" %>
+        <td><a href="/" type="button" data-toggle="modal" data-target="#acceptedProposal" id ="proposalBox" data-proposalid="<%= proposal.id %>">
           <%= proposal.status.capitalize %>
         </a></td>  
       <% else %>
