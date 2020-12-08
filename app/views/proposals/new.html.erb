@@ -16,13 +16,11 @@
 <h4 class="new-title mt-4">Sua proposta:</h4>
     <%= simple_form_for [ @job, @proposal ], :html => {:class => 'form-group ml-4'} do |f| %>
     <div class="row">
-        <div class="edit-options col-4 bl-0 pl-0">
-
-        <%= f.input :price, label: "Proponha seu preço", class: "form-control" %>
+      <div class="edit-options col-4 bl-0 pl-0">
+        <%= f.input :price, input_html: { min: 0}, label: "Proponha seu preço", autofocus: true, class: "form-control" %>
         <div class="date-new-proposal">
            <%= f.input :deadline, as: :date, order:[:day, :month, :year], start_year: Date.today.year, class: "form-control", label: "Proponha seu prazo" %>
         </div>
-
       </div>
     </div>
     <br>

@@ -37,6 +37,20 @@
         <div>
           <div class="card card-proposal-show card-livro pb-10 box_dentro">
             <h3 class="mt-2 pb-2 pl-3 pt-2">Trabalhos solicitados</h3>
+
+            <div class="dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Situação
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to 'Pendente', users_show_path(filter: 'pending', id: current_user.id), class: 'dropdown-item' %>
+                <%= link_to 'Aceito', users_show_path(filter: 'accepted', id: current_user.id), class: 'dropdown-item' %>
+                <%= link_to 'Rejeitado', users_show_path(filter: 'rejected', id: current_user.id), class: 'dropdown-item' %>
+                <%= link_to 'Todas', users_show_path(id: current_user.id), class: 'dropdown-item' %>
+              </div>
+            </div>
+            <p></p>
+
             <%= render partial: "share/table_jobs", locals: { jobs: @jobs } %>
           </div>
         </div>
@@ -58,6 +72,26 @@
           <p></p>
           <%= render partial: "share/table_proposal", locals: { proposals: @proposals, job: @job } %>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="acceptedProposal" tabindex="-1" role="dialog" aria-labelledby="acceptedProposalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="acceptedProposalLabel">Que bom que você a sua proposta foi aceita! 😃</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        O usuário entrará em contato com você!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-green" data-dismiss="modal">Ok</button>
       </div>
     </div>
   </div>
