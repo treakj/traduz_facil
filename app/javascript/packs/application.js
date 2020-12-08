@@ -28,7 +28,7 @@ import { clientAccept } from "../channels/modalClientAccept"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
+import { acionaModal } from '../componentes/modal'
 document.addEventListener('turbolinks:load', () => {
 
   clientAccept();
@@ -36,3 +36,9 @@ document.addEventListener('turbolinks:load', () => {
   console.log(document.referrer.toString().includes("edit"));
 
 });
+//= require rails-ujs
+//= require jquery
+//= require activestorage
+//= require turbolinks
+//= require micromodal/dist/micromodal
+//= require_tree .
