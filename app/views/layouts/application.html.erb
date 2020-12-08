@@ -13,11 +13,14 @@
 
   <body>
       <div id="notice">
+        <% unless current_page?(root_path) || current_page?(new_user_session_path) %>
         <%= render partial: "share/navbar" %>
+        <% end %>
         <%= render partial: "share/flashes" %>
 
         <%= yield %>
-
+        <% unless current_page?(root_path) || current_page?(new_user_session_path) %>
         <%= render partial: "share/footer" %>
+        <% end %>
   </body>
 </html>

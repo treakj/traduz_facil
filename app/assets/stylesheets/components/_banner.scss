@@ -5,3 +5,10 @@
 //   background-image: url("https://picsum.photos/600/300");
 //   background-size: cover;
 // }
+
+.banner{
+  background-image: linear-gradient(rgba(43,131,47,0.25), rgba(43,131,47,0.1)), image-url("cowomen.jpg");
+  background-size: cover;
+  width: auto;
+  height: 100vh;
+}
