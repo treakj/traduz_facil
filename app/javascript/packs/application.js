@@ -27,8 +27,15 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
+import { teste, acionaModal } from '../componentes/modal'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  acionaModal();
 });
+//= require rails-ujs
+//= require jquery
+//= require activestorage
+//= require turbolinks
+//= require micromodal/dist/micromodal
+//= require_tree .

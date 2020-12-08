@@ -62,3 +62,31 @@
 
   </div>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade <%= 'accepted' if  @accepted_propossal_mine %>" id="acceptedProposal" tabindex="-1" role="dialog" aria-labelledby="acceptedProposalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="acceptedProposalLabel">Que bom que você achou o que queria! 😃</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% if @accepted_propossal_mine %>
+      <div class="modal-body">
+        Agora você precisa entrar em contato com @<%= User.find(@accepted_propossal_mine.user_id).username if @accepted_propossal_mine %> para os ajustes finais:
+        <br>
+        Nome: <%= "#{User.find(@accepted_propossal_mine.user_id).first_name} #{User.find(@accepted_propossal_mine.user_id).last_name}" %>
+        <br>
+        E-mail: <%= User.find(@accepted_propossal_mine.user_id).email %>
+      </div>
+      <% end %>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-green" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

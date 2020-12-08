@@ -22,7 +22,14 @@
       <td><%= User.find(proposal.user_id).username %></td>
       <td>R$<%= proposal.price %></td>
       <td><%= proposal.deadline.strftime("%d.%m.%Y") %></td>
-      <td><%= proposal.status.capitalize %></td>
+
+      <% if proposal.status == "pending" %>
+        <td><a href="#" type="button" data-toggle="modal" data-target="#acceptedProposal" <%= class="acceptedProposal" if proposal.status == "pending" %>>
+          <%= proposal.status.capitalize %>
+        </a></td>  
+      <% else %>
+        <td><%= proposal.status.capitalize %></td>
+      <% end %>
       <% if current_user.admin || proposal.user_id == current_user.id  %>
         <td>
           <%= link_to job_proposal_path(proposal.job_id, proposal), method: "Delete", class: "green-font", data: {confirm: "You Sure?"} do %>
